@@ -42,14 +42,14 @@ def posting(links_to_replace, post_id, count):
         else:
             print(f"Failed to retrieve post (ID: {post_id}). Status code: {response.status_code}")
             return None
-    token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL21leGFuaWtzLnJ1IiwiaWF0IjoxNzE5NTU5OTE3LCJuYmYiOjE3MTk1NTk5MTcsImV4cCI6MTcyMDE2NDcxNywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.zWRRKXbJCb5OnJipKcfBkkKPFKl1fYsG_2K2REtSgL0"
+    token = ""
     def check_token_validity(token):
         headers = {
             'Authorization': f'Bearer {token}',
             'Content-Type': 'application/json',
             'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'
         }
-        response = requests.get('https://mexaniks.ru/wp-json/wp/v1', headers=headers)
+        response = requests.get('https://example.ru/wp-json/wp/v1', headers=headers)
 
         if response.status_code in (401, 403, 400):  # Обычно 401 код говорит о проблемах с аутентификацией
             print("Токен недействителен. Пожалуйста, поменяйте токен.")
@@ -72,7 +72,7 @@ def posting(links_to_replace, post_id, count):
 
 
     # Настройки вашего WordPress сайта
-    base_url = 'https://mexaniks.ru'
+    base_url = 'https://example.ru'
      # ID вашего поста, который нужно обновить
 
     # Заголовки для авторизации или любой другой необходимой аутентификации
